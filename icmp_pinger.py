@@ -90,7 +90,7 @@ def sendOnePing(mySocket, destAddr, ID):
     # which can be referenced by their position number within the object
 
 
-def doOnePing(destAddr, sequence, timeout):
+def doOnePing(destAddr, timeout):
     icmp = getprotobyname("icmp")
 
     # SOCK_RAW is a powerful socket type. For more details see: http://sock-raw.org/papers/sock_raw
@@ -113,7 +113,7 @@ def ping(host, timeout=1):
     print("")
     # Send ping requests to a server separated by approximately one second
     while 1 :
-        delay = doOnePing(dest, 1, timeout)
+        delay = doOnePing(dest, timeout)
         print(delay)
         time.sleep(1)# one second
     return delay
